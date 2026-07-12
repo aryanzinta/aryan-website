@@ -7,7 +7,7 @@
 <meta name="description" content="I help skincare & beauty brands spending $30K+/month on Meta turn ad creative into their most profitable asset — research, statics, media buying & reporting." />
 <meta name="theme-color" content="#0C0C0E" />
 <meta property="og:title" content="Aryan Zinta — Meta Creative Strategist" />
-<meta property="og:description" content="Scroll-stopping creative that turns browsers into buyers, for skincare & beauty brands scaling on Meta." />
+<meta property="og:description" content="Scroll-stopping creatives that turn browsers into buyers, for skincare & beauty brands scaling on Meta." />
 <meta property="og:image" content="assets/premium-chandelier.jpg" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23E6CE93'/%3E%3Cstop offset='1' stop-color='%23C9A867'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%230C0C0E'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='30' font-style='italic' fill='url(%23g)' text-anchor='middle'%3EAZ%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -166,6 +166,14 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
   .result__big{padding-right:0;padding-bottom:24px;border-right:none;border-bottom:1px solid var(--line-gold)}
   .result__grid{grid-template-columns:1fr 1fr;text-align:left}
 }
+
+/* ---------- Proof / receipts ---------- */
+.proof-grid{columns:3;column-gap:16px}
+.proof-item{break-inside:avoid;margin:0 0 16px;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:var(--card);cursor:pointer;transition:transform .4s var(--ease),border-color .4s,box-shadow .4s}
+.proof-item:hover{transform:translateY(-4px);border-color:var(--line-gold);box-shadow:0 20px 40px -24px rgba(0,0,0,.7)}
+.proof-item img{width:100%;display:block}
+@media (max-width:1024px){.proof-grid{columns:2}}
+@media (max-width:600px){.proof-grid{columns:1}}
 
 /* ---------- Problem ---------- */
 .prob{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,72px);align-items:start}
@@ -354,7 +362,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
     <div class="hero__grid">
       <div>
         <span class="label hero__reveal d1">Meta Creative Strategist — Skincare &amp; Beauty</span>
-        <h1 class="hero__reveal d2">Scroll-stopping creative that turns browsers into <span class="g">buyers.</span></h1>
+        <h1 class="hero__reveal d2">Scroll-stopping creatives that turn browsers into <span class="g">buyers.</span></h1>
         <p class="hero__deck hero__reveal d3">I help skincare &amp; beauty brands spending <b>$30K+/month</b> on Meta turn ad creative into their most profitable asset — research, statics, media buying &amp; reporting.</p>
         <div class="hero__cta hero__reveal d4">
           <a class="btn btn-gold" href="https://calendly.com/aryan-emails79/new-meeting" target="_blank" rel="noopener">Book a call
@@ -402,6 +410,24 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
       <div class="stat"><b>3+</b><span>Fresh concepts per sprint</span></div>
       <div class="stat"><b>67</b><span>Page research report, free</span></div>
       <div class="stat"><b>24h</b><span>Typical reply time</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROOF / RECEIPTS ============ -->
+<section class="section section--alt" id="proof">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label">The receipts</span>
+      <h2>Don't just take <em>my</em> word for it.</h2>
+      <p>Real messages and dashboards from the people running my creative. Tap any to enlarge.</p>
+    </div>
+    <div class="proof-grid reveal">
+      <figure class="proof-item"><img src="assets/proof-dashboard.jpg" alt="Ad dashboard showing 42.45x ROAS on the WhatsApp-testimonial static" loading="lazy"></figure>
+      <figure class="proof-item"><img src="assets/proof-pif.jpg" alt="Confirmation of a purchase driven by Aryan's static ad" loading="lazy"></figure>
+      <figure class="proof-item"><img src="assets/proof-roi.jpg" alt="Sean Ferres: 42x ROAS, the single highest ROI ad" loading="lazy"></figure>
+      <figure class="proof-item"><img src="assets/proof-warmup.jpg" alt="Two sales in the warmup round, main campaign launching" loading="lazy"></figure>
+      <figure class="proof-item"><img src="assets/proof-killer.jpg" alt="Client feedback: your static was killer, mate" loading="lazy"></figure>
     </div>
   </div>
 </section>
@@ -663,12 +689,14 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
   document.querySelectorAll('.reveal').forEach(function(el){reduce?el.classList.add('in'):io.observe(el);});
 
   var cards=[].slice.call(document.querySelectorAll('#grid .card'));
-  var lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),lbCap=document.getElementById('lbCap'),cur=0;
-  function show(){var c=cards[cur],img=c.querySelector('img');lbImg.src=img.getAttribute('src');lbImg.alt=img.getAttribute('alt');lbCap.textContent=c.getAttribute('data-cap')||'';}
-  function open(i){cur=i;show();lb.classList.add('open');document.body.style.overflow='hidden';document.getElementById('lbClose').focus();}
+  var proofs=[].slice.call(document.querySelectorAll('.proof-item'));
+  var lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),lbCap=document.getElementById('lbCap'),cur=0,lbList=cards;
+  function show(){var c=lbList[cur],img=c.querySelector('img');lbImg.src=img.getAttribute('src');lbImg.alt=img.getAttribute('alt');lbCap.textContent=c.getAttribute('data-cap')||img.getAttribute('alt')||'';}
+  function open(list,i){lbList=list;cur=i;show();lb.classList.add('open');document.body.style.overflow='hidden';document.getElementById('lbClose').focus();}
   function close(){lb.classList.remove('open');document.body.style.overflow='';}
-  function move(d){cur=(cur+d+cards.length)%cards.length;show();}
-  cards.forEach(function(c,i){c.addEventListener('click',function(){open(i);});});
+  function move(d){cur=(cur+d+lbList.length)%lbList.length;show();}
+  cards.forEach(function(c,i){c.addEventListener('click',function(){open(cards,i);});});
+  proofs.forEach(function(c,i){c.addEventListener('click',function(){open(proofs,i);});});
   document.getElementById('lbClose').addEventListener('click',close);
   document.getElementById('lbNext').addEventListener('click',function(){move(1);});
   document.getElementById('lbPrev').addEventListener('click',function(){move(-1);});
