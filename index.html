@@ -151,6 +151,21 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .stat:last-child{border-right:none}
 .stat b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(40px,5.4vw,66px);line-height:1;color:var(--gold)}
 .stat span{display:block;font-size:13px;letter-spacing:.06em;color:var(--muted);margin-top:14px;text-transform:uppercase}
+/* ---------- Featured result ---------- */
+.result{display:grid;grid-template-columns:auto 1fr;gap:clamp(26px,5vw,58px);align-items:center;border:1px solid var(--line-gold);border-radius:var(--r-lg);background:linear-gradient(155deg,var(--gold-soft),var(--card));padding:clamp(28px,4vw,48px);margin-bottom:20px}
+.result__big{text-align:center;padding-right:clamp(24px,5vw,56px);border-right:1px solid var(--line-gold)}
+.result__big b{display:block;font-family:var(--display);font-weight:500;font-size:clamp(58px,9vw,110px);line-height:.86;color:var(--gold)}
+.result__big span{display:block;font-family:var(--sans);font-weight:500;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:12px}
+.result__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px 24px}
+.result__grid div b{display:block;font-family:var(--display);font-size:clamp(24px,2.6vw,32px);color:var(--cream);line-height:1}
+.result__grid div b s{font-size:15px;color:var(--muted);text-decoration:none}
+.result__grid div span{display:block;font-size:12.5px;color:var(--muted);margin-top:8px;letter-spacing:.03em}
+.result__cap{grid-column:1/-1;margin:2px 0 0;font-family:var(--display);font-style:italic;color:var(--muted);font-size:15px}
+@media (max-width:760px){
+  .result{grid-template-columns:1fr;gap:24px;text-align:center}
+  .result__big{padding-right:0;padding-bottom:24px;border-right:none;border-bottom:1px solid var(--line-gold)}
+  .result__grid{grid-template-columns:1fr 1fr;text-align:left}
+}
 
 /* ---------- Problem ---------- */
 .prob{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,72px);align-items:start}
@@ -365,9 +380,23 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
   </div>
 </div>
 
-<!-- ============ STATS ============ -->
-<section class="section">
+<!-- ============ FEATURED RESULT + STATS ============ -->
+<section class="section" aria-label="Results">
   <div class="wrap">
+    <div class="sec-head reveal" style="margin-bottom:clamp(28px,3.5vw,44px)">
+      <span class="label">A recent result</span>
+      <h2>One static. <em>42× return.</em></h2>
+    </div>
+    <div class="result reveal">
+      <div class="result__big"><b>42.45×</b><span>Return on ad spend</span></div>
+      <div class="result__grid">
+        <div><b>$3,997</b><span>Revenue generated</span></div>
+        <div><b>$3,902</b><span>Profit</span></div>
+        <div><b>~$94</b><span>Ad spend</span></div>
+        <div><b>$1,000<s>&nbsp;/day</s></b><span>Budget</span></div>
+        <p class="result__cap">A WhatsApp-testimonial static I wrote &amp; strategised — tracked live on a partner's ad account.</p>
+      </div>
+    </div>
     <div class="stats reveal">
       <div class="stat"><b>$30K+</b><span>Monthly ad spend I build for</span></div>
       <div class="stat"><b>3+</b><span>Fresh concepts per sprint</span></div>
